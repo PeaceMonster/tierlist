@@ -3,7 +3,7 @@ import { default as Konva } from "konva";
 const log = console.log;
 
 const width = window.innerWidth;
-const height = window.innerHeight;
+const height = window.innerHeight - 20;
 
 let stage = new Konva.Stage({
   container: 'container',
@@ -83,6 +83,7 @@ stage.add(background);
 background.draw();
 
 let subjects = new Konva.Layer();
+let output = {};
 
 
 function arrange_subjects() {
@@ -104,7 +105,6 @@ function arrange_subjects() {
       row = 1;
     }
   }
-  let output = {};
   output.untiered = [];
   for (let i = 0; i < untiered.length; i++) {
     output.untiered[i] = untiered[i].children[1].textArr[0].text;
@@ -210,4 +210,8 @@ stage.add(subjects);
 arrange_subjects();
 
 subjects.draw();
+
+document.getElementById("json").addEventListener('click', e => {
+  document.getElementById("result").innerText = JSON.stringify(output)
+})
 

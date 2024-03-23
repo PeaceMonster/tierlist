@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "konva": "^9.3.6"
+  },
+  "name": "rank_list",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "esbuild": "^0.20.2"
+  },
+  "scripts": {
+    "build": "esbuild main.js --bundle --outfile=dist/bundle.js",
+    "watch": "echo 'main.js' | entr esbuild main.js --bundle --outfile=dist/bundle.js"
+  }
+}

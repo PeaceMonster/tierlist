@@ -1,3 +1,4 @@
+import { saveAs } from "file-saver";
 import { default as Konva } from "konva";
 
 const log = console.log;
@@ -212,6 +213,20 @@ arrange_subjects();
 subjects.draw();
 
 document.getElementById("json").addEventListener('click', e => {
-  document.getElementById("result").innerText = JSON.stringify(output)
+  document.getElementById("result").innerText = "Send Mail";
+  document.getElementById("result").href += JSON.stringify(output);
+})
+
+
+document.getElementById("clip").addEventListener('click', e => {
+  navigator.clipboard.writeText(JSON.stringify(output));
+})
+
+document.getElementById("file").addEventListener('click', e => {
+  let fileToSave = new Blob([JSON.stringify(output)], {
+    type: 'application/json'
+  });
+
+  saveAs(fileToSave, "Result.json");
 })
 

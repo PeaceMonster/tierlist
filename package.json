@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "file-saver": "^2.0.5",
     "konva": "^9.3.6"
   },
   "name": "rank_list",
